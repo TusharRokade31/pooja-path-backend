@@ -2,6 +2,7 @@ import express from 'express';
 import formidable from 'formidable';
 import fs from 'fs';
 import fetch from 'node-fetch';
+import cors from "cors";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -98,6 +99,9 @@ app.post('/upload', (req, res) => {
   });
 });
 
+app.use(cors())
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
+
 });
